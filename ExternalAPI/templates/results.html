@@ -8,13 +8,13 @@
 
     <form method="post" action="/">
       <input type="hidden" name="sort" value="strAlbum">
-      <input type="hidden" name="artist" value= "{{artist}}">
+      <input type="hidden" name="artist" value="{{ artist }}">
       <button type="submit">Sort by Album Name</button>
     </form>
 
     <form method="post" action="/">
-      <input type="hidden" name="sort" value="intyearrelease">
-      <input type="hidden" name="artist" value= "{{artist}}">
+      <input type="hidden" name="sort" value="intYearReleased">
+      <input type="hidden" name="artist" value="{{ artist }}">
       <button type="submit">Sort by Release Year</button>
     </form>
 
@@ -26,15 +26,15 @@
         </tr>
       </thead>
       <tbody>
-        {% if sort == 'year' %}
-          {% for album in albums|sort(attribute='{{ sort }}') %}
+        {% if sort == 'intYearReleased' %}
+          {% for album in sorted_albums %}
             <tr>
               <td>{{ album.strAlbum }}</td>
               <td>{{ album.intYearReleased }}</td>
             </tr>
           {% endfor %}
         {% else %}
-          {% for album in albums|sort(attribute='strAlbum') %}
+          {% for album in albums %}
             <tr>
               <td>{{ album.strAlbum }}</td>
               <td>{{ album.intYearReleased }}</td>
