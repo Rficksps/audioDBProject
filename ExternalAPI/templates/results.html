@@ -18,10 +18,7 @@
       <button type="submit">Sort by Release Year</button>
     </form>
 
-    <form method="post" action="/">
-      <input type="hidden" name="reverse" value="true">
-      <button type="submit">Reverse</button>
-    </form>
+
 
     <table>
       <thead>
@@ -31,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-          {% for album in albums|sort(attribute=sort, reverse=reverse)%}
+          {% for album in albums|sort(attribute=sort, reverse=true)%}
             <tr>
               <td>{{ album.strAlbum }}</td>
               <td>{{ album.intYearReleased }}</td>

@@ -13,16 +13,7 @@ def index():
         save_albums_to_db(artist_name, albums)
 
         if "sort" in request.form:
-            return render_template('results.html', artist=artist_name, albums=albums,sort=request.form["sort"])
-        if "reverse" in request.form:
-            if reverse == "true":
-                reverse == "false"
-                return render_template('results.html', reverse=request.form["reverse"])
-            elif reverse == "false":
-                reverse == "true"
-                return render_template('results.html', reverse=request.form["reverse"])
-            else:
-                return render_template('results.html', reverse=request.form["reverse"])
+            return render_template('results.html', artist=artist_name, albums=albums, sort=request.form["sort"])
 
         else:
             return render_template('results.html', artist=artist_name, albums=albums)
