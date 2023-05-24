@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-          {% for album in albums|sort(attribute=sort, reverse=true)%}
+          {% for album in albums|sort(attribute=sort, reverse=false)%}
             <tr>
               <td>{{ album.strAlbum }}</td>
               <td>{{ album.intYearReleased }}</td>
