@@ -9,32 +9,30 @@
     <form method="post" action="/">
       <input type="hidden" name="sort" value="strAlbum">
       <input type="hidden" name="reverse" value="false">
-      <input type="hidden" name="artist" value= "{{artist}}">
-      <button type="submit">Sort by Album Name (A-Z)</button>
+      <input type="hidden" name="artist" value="{{artist}}">
+      <a href="#" onclick="this.parentNode.submit(); return false;">Sort by Album Name (A-Z)</a>
     </form>
 
     <form method="post" action="/">
       <input type="hidden" name="sort" value="strAlbum">
       <input type="hidden" name="reverse" value="true">
-      <input type="hidden" name="artist" value= "{{artist}}">
-      <button type="submit">Sort by Album Name (Z-A)</button>
+      <input type="hidden" name="artist" value="{{artist}}">
+      <a href="#" onclick="this.parentNode.submit(); return false;">Sort by Album Name (Z-A)</a>
     </form>
 
     <form method="post" action="/">
       <input type="hidden" name="sort" value="intYearReleased">
       <input type="hidden" name="reverse" value="false">
-      <input type="hidden" name="artist" value= "{{artist}}">
-      <button type="submit">Sort by Release Year (Ascending)</button>
+      <input type="hidden" name="artist" value="{{artist}}">
+      <a href="#" onclick="this.parentNode.submit(); return false;">Sort by Release Year (Ascending)</a>
     </form>
 
     <form method="post" action="/">
       <input type="hidden" name="sort" value="intYearReleased">
       <input type="hidden" name="reverse" value="true">
-      <input type="hidden" name="artist" value= "{{artist}}">
-      <button type="submit">Sort by Release Year (Descending)</button>
+      <input type="hidden" name="artist" value="{{artist}}">
+      <a href="#" onclick="this.parentNode.submit(); return false;">Sort by Release Year (Descending)</a>
     </form>
-
-
 
     <table>
       <thead>
@@ -44,13 +42,12 @@
         </tr>
       </thead>
       <tbody>
-          {% for album in albums|sort(attribute=sort, reverse=reverse)%}
-            <tr>
-              <td>{{ album.strAlbum }}</td>
-              <td>{{ album.intYearReleased }}</td>
-            </tr>
-          {% endfor %}
-
+        {% for album in albums|sort(attribute=sort, reverse=reverse)%}
+        <tr>
+          <td>{{ album.strAlbum }}</td>
+          <td>{{ album.intYearReleased }}</td>
+        </tr>
+        {% endfor %}
       </tbody>
     </table>
     <a href="/">Search another artist</a>
